@@ -11,7 +11,17 @@ html {
 }
 
 body {
+  margin: 0;
+}
+
+.quote-content {
+  max-width: 600px;
+  min-height: 100vh;
+  margin: 0 auto;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #quote-info {
@@ -19,14 +29,24 @@ body {
 }
 
 #quote {
+  display: inline-block;
+  text-align: justify;
+  padding-left: 0.75rem;
   font-size: 2.5rem;
+  line-height: 3.5rem;
+  border-left: 3px solid rgba(0,0,0,0.2);
 }
 
 #author {
   font-size: 2rem;
 }
 
-#refresh {
+#category {
+  font-size: 1.6rem;
+}
+
+.button {
+  margin: 0 1rem;
   padding: 0.5rem;
   width: 3.4rem;
   height: 3.4rem;
@@ -34,7 +54,14 @@ body {
   border: 0;
   background: none;
   cursor: pointer;
+}
 
+.icon {
+  width: 100%;
+  height: 100%;
+}
+
+#refresh {
   &:hover {
     #refresh-icon {
       transform: rotate(180deg);
@@ -71,11 +98,30 @@ body {
   }
 }
 
-hr {
-  margin: 2rem;
-  border: 0;
-  height: 1px;
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+@keyframes wag {
+  33% {
+    transform: rotate(20deg);
+    -webkit-transform: rotate(20deg);
+    -moz-transform: rotate(20deg);
+  }
+  66% {
+    transform: rotate(-20deg);
+    -webkit-transform: rotate(-20deg);
+    -moz-transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+  }
+}
+
+#tweet {
+  &:hover {
+    .icon {
+      animation: wag 0.6s 1;
+    }
+  }
 }
 
 footer {

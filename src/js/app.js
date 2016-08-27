@@ -1,3 +1,5 @@
+'use strict';
+
 /*
  * App Controller
  */
@@ -25,9 +27,7 @@ var appCtrl = {
 
   getQuote: function() {
     var _this = this;
-    var refreshIcon = appView.refreshIcon;
-    var quoteContainer = appView.quoteContainer;
-    quoteContainer.style.opacity = 0;
+    appView.quoteContainer.style.opacity = 0;
     appView.animateSpin();
     $.ajax({
       headers: {
@@ -39,12 +39,11 @@ var appCtrl = {
     }).done(function(response) {
       var data = JSON.parse(response);
       _this.parseQuote(data);
-      appView.fadeIn(quoteContainer);
-      appView.stopSpin();
     }).fail(function(err) {
       _this.parseQuote({
         quote: 'A quote could not be found.',
-        speaker: '',
+        author: '',
+        category: ''
       });
     });
   },
@@ -54,6 +53,7 @@ var appCtrl = {
     this.currentQuote.quote = data.quote;
     this.currentQuote.author = data.author;
     this.currentQuote.category = data.category;
+
     appView.displayQuote();
   },
 
@@ -66,17 +66,33 @@ var appCtrl = {
 var appView = {
 
   init: function() {
+    this.queryElements();
+  },
+
+  queryElements: function() {
     this.quoteContainer = document.getElementById('quote-info');
     this.quoteEl = document.getElementById('quote');
     this.quoteAuthorEl = document.getElementById('author');
     this.categoryEl = document.getElementById('category');
     this.refreshButton = document.getElementById('refresh');
     this.refreshIcon = document.getElementById('refresh-icon');
+    this.tweetButton = document.getElementById('tweet');
+    this.tweetLink = document.getElementById('tweet-link');
   },
 
   displayQuote: function() {
     this.quoteEl.innerHTML = appCtrl.currentQuote.quote;
     this.quoteAuthorEl.innerHTML = appCtrl.currentQuote.author;
+    this.categoryEl.innerHTML = appCtrl.currentQuote.category;
+
+    var quoteText = appCtrl.currentQuote.quote.split(' ').join('+');
+
+    this.fadeIn(this.quoteContainer);
+    this.stopSpin();
+
+    this.tweetLink.setAttribute('href',
+      'https://twitter.com/intent/tweet?text="' +
+        quoteText + '&hashtags=' + appCtrl.currentQuote.category);
   },
 
   fadeIn: function(el) {
