@@ -1,12 +1,15 @@
 html {
   box-sizing: border-box;
-  font: 62.5% "IM Fell English SC", serif; }
+  font: 62.5% "IM Fell English SC", serif;
+}
 
 *, *:before, *:after {
-  box-sizing: inherit; }
+  box-sizing: inherit;
+}
 
 body {
-  margin: 0; }
+  margin: 0;
+}
 
 .quote-content {
   max-width: 600px;
@@ -15,10 +18,12 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: center; }
+  justify-content: center;
+}
 
 #quote-info {
-  padding: 2rem 0; }
+  padding: 2rem 0;
+}
 
 #quote {
   display: inline-block;
@@ -26,13 +31,16 @@ body {
   padding-left: 0.75rem;
   font-size: 2.5rem;
   line-height: 3.5rem;
-  border-left: 3px solid rgba(0, 0, 0, 0.2); }
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+}
 
 #author {
-  font-size: 2rem; }
+  font-size: 2rem;
+}
 
 #category {
-  font-size: 1.6rem; }
+  font-size: 1.6rem;
+}
 
 .button {
   margin: 0 1rem;
@@ -42,11 +50,13 @@ body {
   outline: 0;
   border: 0;
   background: none;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
 .icon {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+}
 
 #refresh:hover #refresh-icon {
   transform: rotate(180deg);
@@ -54,41 +64,53 @@ body {
   -moz-transform: rotate(180deg);
   transition: transform 0.25s linear;
   -webkit-transition: transform 0.25s linear;
-  -moz-transition: transform 0.25s linear; }
+  -moz-transition: transform 0.25s linear;
+}
 
 @keyframes spinning {
   0% {
     transform: rotate(0);
     -webkit-transform: rotate(0);
-    -moz-transform: rotate(0); }
+    -moz-transform: rotate(0);
+  }
   50% {
     transform: rotate(180deg);
     -webkit-transform: rotate(180deg);
-    -moz-transform: rotate(180deg); }
+    -moz-transform: rotate(180deg);
+  }
   100% {
     transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg); } }
+    -moz-transform: rotate(360deg);
+  }
+}
 #refresh-icon.spinning {
-  animation: spinning 1s infinite; }
+  animation: spinning 1s infinite;
+}
 
 @keyframes wag {
   33% {
     transform: rotate(20deg);
     -webkit-transform: rotate(20deg);
-    -moz-transform: rotate(20deg); }
+    -moz-transform: rotate(20deg);
+  }
   66% {
     transform: rotate(-20deg);
     -webkit-transform: rotate(-20deg);
-    -moz-transform: rotate(-20deg); }
+    -moz-transform: rotate(-20deg);
+  }
   100% {
     transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg); } }
+    -moz-transform: rotate(0deg);
+  }
+}
 #tweet:hover .icon {
-  animation: wag 0.6s 1; }
+  animation: wag 0.6s 1;
+}
 
 footer {
-  margin-top: 3rem; }
+  margin-top: 3rem;
+}
 
 /*# sourceMappingURL=styles.css.map */
